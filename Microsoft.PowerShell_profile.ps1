@@ -86,3 +86,10 @@ else {
     "😊 < ｺﾝﾆﾁﾊ"
 }
 Write-Host $message
+
+# Global Alias
+Set-Alias wget Invoke-WebRequest
+Set-Alias grep Select-String
+
+# Set MSVC environment variables
+& 'C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/Common7/Tools/Launch-VsDevShell.ps1' -Arch amd64 -HostArch amd64 > nul
