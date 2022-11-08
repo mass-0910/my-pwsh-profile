@@ -63,7 +63,7 @@ function Get-Clock-Emoji () {
 
 function prompt {
     # $stat = if ($?) {"`u{1F60A}"} else {"`u{1F621}"}
-    $stat = if ($?) { "😊" } else { "`😡" }
+    $stat = if ($?) { if (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([System.Security.Principal.WindowsBuiltinRole] "Administrator")) {"😎"} else { "😊" } } else { "`😡" }
     $ps = if (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([System.Security.Principal.WindowsBuiltinRole] "Administrator")) { "#" } else { ">" }
     Write-Host "$(Get-Clock-Emoji) " -NoNewline
     Write-Host $(Get-Date -Format HH:mm:ss) -ForegroundColor DarkRed -NoNewline
